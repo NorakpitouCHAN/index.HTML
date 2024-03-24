@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reforest</title>
+    <link rel="stylesheet" href="main.css"/>
+    <scirpt src="config.js" defer></scirpt>
+</head>
+<body>
+
+<div class="container">
+   
+    <div class="navbar">
+        <img src="LOGO.png" class="logo">
+         
+        <nav> 
+            
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#donation">DONATE</a></li>
+                <li><a href="#aboutus">ABOUT US</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="home" class="row">
+        <div class="col">
+            <h1 class="srreveal">Deforestation</h1>
+            <p class="srreveal2">Deforestation is the purposeful clearing of trees and landscapes that can cause catastrophic events. </p>
+            
+        </div>
+        <div class="box">
+            <h1>Effects of deforestation:
+                <p>
+                .Biodiversity loss:
+                Each year, animals such as birds, koalas, etc. are more likely to lose their natural habitat due to deforestation.</p>
+                <p>.Floods: 
+                Deforestation leads to land erosion because the trees maintain the surface of the mountains. The water level of the rivers increases suddenly, causing floods.
+                 </p>
+            </h1>
+        </div>
+    </div>
+</div>
+<div id="donation" class="cover">
+   
+    <form onsubmit="sendEmail(); sendEmail2(); reset(); return false;">
+        <h3>DONATION</h3>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+        <input type="email" id="email" name="email" placeholder="Email ID" required> 
+        <select name="amountOfTrees" id="amountOfTrees">
+            <option value="1">1=5$</option>
+            <option value="2">2=10$</option>
+        </select>  
+        <p>Please donate through this QR code</p> 
+        <img src="Dollar.jpg" class="payment">
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div id="aboutus" class="about">
+    <h1 class="h">ABOUT US</h1>
+    <p class="KK">We are a non profit group hosting a reliable and trustful source or pathway for donators who are passionate about changing deforestation for the better and help save the earth. We help by gathering donations and give it to other organizations.</p>
+    <h2>Our contact:
+        0968833876/
+    </h2>
+    <img class="aboutus" src="LOGO.png">
+</div>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+   function sendEmail2(){
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "Reforestofficialkh@gmail.com",
+        Password : "0B0583D0E5DA9352EE52E78CE986FD521114",
+        To : 'norakpitouchan@gmail.com',    
+        From : document.getElementById("email").value,
+        Subject : "Donation",
+        Body : "Name: " + document.getElementById("name").value 
+                + "<br>Email: " + document.getElementById("email").value
+                + "<br>Amount of Trees: " + document.getElementById("amountOfTrees").value
+    }).then(
+        message => alert("Thank you")
+    );
+}
+     function sendEmail(){
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "Reforestofficialkh@gmail.com",
+            Password : "0B0583D0E5DA9352EE52E78CE986FD521114",
+            To : document.getElementById("email").value,
+            From : 'Reforestofficialkh@gmail.com',
+            Subject : "Thank you for the donation!",
+            Body : "We sincerely thank you for helping us combat deforestation" 
+        })
+}
+</script>
+<script>
+    // Initialize ScrollReveal
+    const sr = ScrollReveal({
+        duration: 1000,
+        delay: 200,
+        reset: true
+    });
+
+    // Add reveal animations to elements
+    sr.reveal('.sr', {
+        origin: 'bottom',
+        distance: '20px',
+        easing: 'cubic-bezier(0.5, 0, 0, 1)',
+        scale: 1,
+    });
+</script>
+
+
+
+
+</body>
+</html>
